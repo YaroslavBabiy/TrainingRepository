@@ -10,9 +10,9 @@ namespace MyDB
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<MyModel>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MyModel>()); // ініціалізація БД
 
-            using (MyModel myModel = new MyModel()) // підключаємось до БД
+            using (MyModel myModel = new MyModel()) // підключаємось до контексту нашої БД
             {
                 Position p1 = new Position { PositionName = "Junior", Salary = 750 };
 
@@ -73,12 +73,12 @@ namespace MyDB
 
                 Console.WriteLine(new string('-', 30));
 
-                int num2 = myModel.Positions.Count(p => p.PositionName.Contains("Junior"));
+                int num2 = myModel.Positions.Count(p => p.PositionName.Contains("Junior")); // знаходимо к-ть записів які містять ключове слово Junior
                 Console.WriteLine("{0}", num2);
 
                 Console.WriteLine(new string('-', 30));
 
-                int num3 = myModel.Persons.Min(p => p.Age);
+                int num3 = myModel.Persons.Min(p => p.Age);  // для знаходження мін, макс і середнього значення по виборкі використовуємо Min, Max, Average
                 Console.WriteLine("Мінімальний вік - {0}", num3);
 
                 Console.WriteLine(new string('-', 30));
