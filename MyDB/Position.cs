@@ -13,7 +13,7 @@ namespace MyDB
 
         public int? PersonId { get; set; } // зовнішній ключ
 
-        public Person Person { get; set; } // Властивість для навігації щоб ми миогли переходити з Person в Position
+        public Person Person { get; set; } // властивість для навігації щоб ми могли переходити з Person в Position
 
     }
 }
